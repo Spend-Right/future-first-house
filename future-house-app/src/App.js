@@ -25,7 +25,9 @@ function App() {
                     <div className="content">
                         <Route path="/" component={Home}/>
                         <Route path="/statuschecker" component={StatusChecker}/>
-                        <Route path="/housegoal" component={HouseGoal}/>
+                        <Route path="/housegoal">
+                            <HouseGoal/> 
+                        </Route>
                     </div>
                 </div>
             </HashRouter>
