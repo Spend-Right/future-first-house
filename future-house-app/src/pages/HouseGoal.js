@@ -1,38 +1,31 @@
 import React, {useState} from 'react';
-import calcBudget from '../calculator';
+import {calcBudget, ShowBuget} from '../calculator';
 
 function HouseGoal() {
 
-    var inputs = {
-        currentSavings:0,
-        income: 0, 
-        expenses: 0, 
-        year: 0,
-        deposit: 0,
-        region: '',
-        bedrooms: 0
-    };
-
     const [inputField , setInputField] = useState(
         {
-            currentSavings:0,
-            income: 0, 
-            expenses: 0, 
-            year: 0,
-            deposit: 0,
+            currentSavings:20000,
+            income: 60000, 
+            expenses: 40000, 
+            year: 2026,
+            deposit: 0.10,
             region: '',
-            bedrooms: 0
+            bedrooms: 2
         }
     );
 
     const inputsHandler = (e) =>{
-        console.log(e.target.name, e.target.value)
-        setInputField( {[e.target.name]: e.target.value} )
+        setInputField( {...inputField, [e.target.name]: e.target.value} )
     }
 
     const submitButton = () =>{
-        console.log(inputField.currentSavings, inputField.income, inputField.expenses, inputField.year, inputField.deposit);
-        alert(calcBudget(inputField.currentSavings, inputField.income, inputField.expenses, inputField.year, inputField.deposit))
+        // this.state.budget = calcBudget(inputField.currentSavings, inputField.income, inputField.expenses, inputField.year, inputField.deposit)
+        
+        var budget = calcBudget(inputField.currentSavings, inputField.income, inputField.expenses, inputField.year, inputField.deposit)
+        alert(budget)
+        return budget
+
     }
 
     return (
@@ -69,6 +62,8 @@ function HouseGoal() {
 
                     <input type="submit" value="Submit"></input>
                 </form>
+
+                {/* <ShowBuget inputField=inputFi/> */}
             </body>
         </div>
     );

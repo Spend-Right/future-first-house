@@ -1,7 +1,14 @@
 const calcBudget = (currentSavings, income, expenses, goalYear, deposit) => {
-    console.log(currentSavings, income, expenses, goalYear, deposit);
     var today = new Date();
-    var futureSavings = currentSavings + (income - expenses) * (goalYear - today.getFullYear);
-    return futureSavings / deposit;
+    var futureSavings = Number(currentSavings) + (Number(income) - Number(expenses)) * (Number(goalYear) - Number(today.getFullYear()));
+    return futureSavings / Number(deposit);
 }
-export default calcBudget;
+
+const ShowBuget = ({inputField}) => {
+    <text>
+        {calcBudget(inputField.currentSavings, inputField.income, inputField.expenses, inputField.year, inputField.deposit)}
+    </text>
+}
+
+
+export {calcBudget, ShowBuget};
