@@ -26,7 +26,7 @@ function App() {
                         <Route path="/" component={Home}/>
                         <Route path="/statuschecker" component={StatusChecker}/>
                         <Route path="/housegoal">
-                            <HouseGoal handleSubmit={()=>alert("thanks")} />
+                            <HouseGoal/> 
                         </Route>
                     </div>
                 </div>
