@@ -1,3 +1,12 @@
+# For the team
+
+After the repository is cloned:
+1. run ```npm install```
+2. run ```npm start```
+
+Then the app should be running in your browser.
+
+# This is from React:
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
