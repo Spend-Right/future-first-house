@@ -1,24 +1,89 @@
 import { useState } from "react";
+import { LineChart, Line, ResponsiveContainer, CartesianGrid, XAxis, YAxis, Tooltip, Legend } from 'recharts';
 
 function StatusChecker() {
     const [userInfo, setUserInfo] = useState({
         //this is what it will look like:
-        // "income_after_tax": 0,
-        // "average_expenses": 0,
-        // "house_year": 2021,
-        // "deposit_percentage": 0,
-        // "current_savings": 0,
-        // "savings_age": 0
+        "income_after_tax": 0,
+        "average_expenses": 0,
+        "house_year": 2021,
+        "deposit_percentage": 0,
+        "current_savings": 0,
+        "savings_age": 0
     });
+    const [data, setData] = useState([
+        {
+            name: "",
+            current_savings: 0
+        },
+        {
+            name: "current savings",
+            current_savings: 1
+        },
+        // {
+        //     name: 'Page A',
+        //     uv: 4000,
+        //     pv: 2400,
+        //     amt: 2400,
+        //   },
+        //   {
+        //     name: 'Page B',
+        //     uv: 3000,
+        //     pv: 1398,
+        //     amt: 2210,
+        //   },
+    ]);
 
     const inputsHandler = (e) =>{
         setUserInfo( {[e.target.name]: e.target.value} );
         console.log("userinfo is: ", userInfo);
+
+        setData([
+            {
+                name: "",
+                current_savings: 0
+            },
+            {
+                name: "current savings",
+                current_savings: userInfo["current_savings"]
+            },
+        ])
+
     }
 
     const submitButton = () =>{
         alert(userInfo.income_after_tax);
     }
+    
+    const renderLineChart = (
+        <div>
+            {/* based on https://recharts.org/en-US/examples */}
+                <LineChart
+                    width={500}
+                    height={300}
+                    data={data}
+                    margin={{
+                        top: 5,
+                        right: 30,
+                        left: 20,
+                        bottom: 5,
+                    }}
+                >
+                    {/* extra stuff */}
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="name" />
+                    <YAxis />
+                    <Tooltip />
+                    <Legend />
+
+                    {/* draw lines */}
+                    <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
+                    <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+                    <Line type="monotone" dataKey="amt" stroke="#82ca9d" />
+                    <Line type="monotone" dataKey="current_savings" stroke="#DC143C" />
+                </LineChart>
+        </div>
+    );
 
     return (
         <div>
@@ -53,6 +118,8 @@ function StatusChecker() {
                     
                     <button onClick={submitButton}>Submit Now</button>
                 </form>
+
+                {renderLineChart}
             </body>
         </div>
     );
