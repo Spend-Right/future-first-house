@@ -20,7 +20,7 @@ export default function Api(props) {
       // This does the API request - the 'await' tells our code to wait
       // until we have a response back from the API
       const responseResidential = await fetch(
-        `	https://api.tmsandbox.co.nz/v1/Search/Property/Residential.json`,
+        `	https://api.tmsandbox.co.nz/v1/Search/Property/Residential.json?price_min=0&price_max=${props.budget}`,
         {
           headers: {
             Authorization: `OAuth oauth_consumer_key=${TRADE_ME_CONFIG.key}, oauth_signature_method=PLAINTEXT, oauth_signature=${TRADE_ME_CONFIG.secret}%26`
@@ -29,7 +29,7 @@ export default function Api(props) {
       );
 
       const responseNewHomes = await fetch(
-        `	https://api.tmsandbox.co.nz/v1/Search/Property/NewHomes.json`,
+        `	https://api.tmsandbox.co.nz/v1/Search/Property/NewHomes.json?price_min=0&price_max=${props.budget}`,
         {
           headers: {
             Authorization: `OAuth oauth_consumer_key=${TRADE_ME_CONFIG.key}, oauth_signature_method=PLAINTEXT, oauth_signature=${TRADE_ME_CONFIG.secret}%26`
@@ -38,7 +38,7 @@ export default function Api(props) {
       );
 
       const responseRural = await fetch(
-        `	https://api.tmsandbox.co.nz/v1/Search/Property/Rural.json`,
+        `	https://api.tmsandbox.co.nz/v1/Search/Property/Rural.json?price_min=0&price_max=${props.budget}`,
         {
           headers: {
             Authorization: `OAuth oauth_consumer_key=${TRADE_ME_CONFIG.key}, oauth_signature_method=PLAINTEXT, oauth_signature=${TRADE_ME_CONFIG.secret}%26`
@@ -47,7 +47,7 @@ export default function Api(props) {
       );
 
       const responseLifestyle = await fetch(
-        `	https://api.tmsandbox.co.nz/v1/Search/Property/Lifestyle.json`,
+        `	https://api.tmsandbox.co.nz/v1/Search/Property/Lifestyle.json?price_min=0&price_max=${props.budget}`,
         {
           headers: {
             Authorization: `OAuth oauth_consumer_key=${TRADE_ME_CONFIG.key}, oauth_signature_method=PLAINTEXT, oauth_signature=${TRADE_ME_CONFIG.secret}%26`
@@ -99,15 +99,27 @@ export default function Api(props) {
     <div className="Api">
       <h1>Trade Me API</h1>
 
-      {/* Yay we have some data! Let's do stuff with it */}
+      <div class="result">
+          <text>
+              {props.budget}
+          </text>
+      </div>
+
+
+      {/* .filter((item)=>item.PriceDisplay<props.budget) 
+      Yay we have some data! Let's do stuff with it */}
       <ul>
-        {data.map((item) => (
+        {data.filter((item)=>
+            parseFloat(item.PriceDisplay.substring(15, item.PriceDisplay.length).replace(/,/g, ''))
+            <
+            props.budget).map((item) => (
           <li key={item.ListingId}>
             <h2>{item.Address}</h2>
             <h2>{item.Suburb}</h2>
             <h2>{item.PropertyType}</h2>
             <h2>{item.ListingId}</h2>
             <h2>Bedroom number: {item.Bedrooms}</h2>
+            {/* <h2>{ parseFloat(item.PriceDisplay.substring(15, item.PriceDisplay.length).replace(/,/g, ''))}</h2> */}
             <img src={item.PictureHref} alt="" />
             <p>Price: {item.PriceDisplay}</p>
             

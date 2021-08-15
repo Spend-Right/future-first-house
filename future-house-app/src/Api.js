@@ -20,7 +20,7 @@ export default function Api(props) {
       // This does the API request - the 'await' tells our code to wait
       // until we have a response back from the API
       const responseResidential = await fetch(
-        `	https://api.tmsandbox.co.nz/v1/Search/Property/Residential.json?TotalCount=20`,
+        `	https://api.tmsandbox.co.nz/v1/Search/Property/Residential.json?price_man=${props.budget}`,
         {
           headers: {
             Authorization: `OAuth oauth_consumer_key=${TRADE_ME_CONFIG.key}, oauth_signature_method=PLAINTEXT, oauth_signature=${TRADE_ME_CONFIG.secret}%26`
@@ -83,6 +83,12 @@ export default function Api(props) {
   return (
     <div className="Api">
       <h1>Trade Me API</h1>
+
+      <div class="result">
+          <text>
+              {props.budget}
+          </text>
+      </div>
 
       {/* Yay we have some data! Let's do stuff with it */}
       <ul>
