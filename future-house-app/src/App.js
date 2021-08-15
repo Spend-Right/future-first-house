@@ -21,7 +21,6 @@ function App() {
                         <li><NavLink to="/">Home</NavLink></li>
                         <li><NavLink to="/statuschecker">Status Checker</NavLink></li>
                         <li><NavLink to="/housegoal">House Goal</NavLink></li>
-                        <li><NavLink to="/results">API results</NavLink></li>
 
                     </ul>
 
@@ -31,7 +30,6 @@ function App() {
                         <Route path="/housegoal">
                             <HouseGoal/> 
                         </Route>
-                        <Route path="/results" component={Api}/>
                     </div>
                 </div>
             </HashRouter>

@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {calcBudget, ShowBuget} from '../calculator';
 import Api from './Results';
+import '../listing.css';
 
 function HouseGoal() {
 

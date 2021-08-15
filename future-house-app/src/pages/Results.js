@@ -113,17 +113,19 @@ export default function Api(props) {
             parseFloat(item.PriceDisplay.substring(15, item.PriceDisplay.length).replace(/,/g, ''))
             <
             props.budget).map((item) => (
-          <li key={item.ListingId}>
-            <h2>{item.Address}</h2>
-            <h2>{item.Suburb}</h2>
-            <h2>{item.PropertyType}</h2>
-            <h2>{item.ListingId}</h2>
-            <h2>Bedroom number: {item.Bedrooms}</h2>
-            {/* <h2>{ parseFloat(item.PriceDisplay.substring(15, item.PriceDisplay.length).replace(/,/g, ''))}</h2> */}
-            <img src={item.PictureHref} alt="" />
-            <p>Price: {item.PriceDisplay}</p>
-            
-          </li>
+          <div class="Listing_container">
+            <div class="Listing_inner">
+              <li key={item.ListingId}>
+                <h2>{item.Address}, {item.Suburb}, {item.Region}</h2>
+                <h3>{item.Bedrooms} Bed</h3>
+                <h3>{item.Bathrooms} Bath</h3>
+                <h3>{item.PropertyType}</h3>
+                <h3 class="House_cost">{item.PriceDisplay}</h3>
+                <img src={item.PictureHref} alt="" />
+                <a href="#">View Listing on TradeMe</a>
+              </li>
+            </div>
+          </div>
         ))}
       </ul>
     </div>
