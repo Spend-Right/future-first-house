@@ -6,6 +6,7 @@ import {
 import Home from "./pages/Index";
 import StatusChecker from "./pages/StatusChecker";
 import HouseGoal from "./pages/HouseGoal";
+import Api from "./pages/Results";
 import './App.css';
 
 function App() {
@@ -20,6 +21,8 @@ function App() {
                         <li><NavLink to="/">Home</NavLink></li>
                         <li><NavLink to="/statuschecker">Status Checker</NavLink></li>
                         <li><NavLink to="/housegoal">House Goal</NavLink></li>
+                        <li><NavLink to="/results">API results</NavLink></li>
+
                     </ul>
 
                     <div className="content">
@@ -28,6 +31,7 @@ function App() {
                         <Route path="/housegoal">
                             <HouseGoal/> 
                         </Route>
+                        <Route path="/results" component={Api}/>
                     </div>
                 </div>
             </HashRouter>
