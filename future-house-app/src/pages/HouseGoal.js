@@ -57,8 +57,6 @@ function HouseGoal() {
 
                         <label for="bedrooms">Badrooms</label><br/>
                         <input type="number" name="bedrooms" onChange={inputsHandler} value={inputField.bedrooms}></input><br/><br/>
-
-                        <input type="submit" value="Submit"></input>
                     </form>
                 </div>
 
