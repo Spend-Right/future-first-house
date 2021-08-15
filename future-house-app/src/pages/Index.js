@@ -1,24 +1,28 @@
+// import Carousel from "react-bootstrap/Carousel";
+import Button from "react-bootstrap/Button";
+import { NavLink } from "react-router-dom";
+import "../../src/index.css";
+
 function Home() {
-    
-    return (
-        <div className="App">
-        <header className="App-header">
+  return (
+    <div className="App">
+      <header className="App-header">
+        {/* <h1>Future-First-Home </h1> */}
+        <p>
+          Encouraging young adults to start saving for their first home wih
+          guidance
+        </p>
+        Learn to manage your budgets and finantial means, and have control of
+        your future
+      </header>
 
-            <h1>Home</h1>
-
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-                molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-                numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-                optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis
-                obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam
-                nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
-                tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit,
-                quia.
-            </p>
-        </header>
-        </div>
-    );
+      <body>
+        <Button style={{ background: "skyblue" }} className="font-link">
+          <NavLink to="/housegoal">See your house goal</NavLink>
+        </Button>
+      </body>
+    </div>
+  );
 }
 
 export default Home;
