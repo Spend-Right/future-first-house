@@ -3,13 +3,12 @@ import { LineChart, Line, ResponsiveContainer, CartesianGrid, XAxis, YAxis, Tool
 
 function StatusChecker() {
     const [userInfo, setUserInfo] = useState({
-        //this is what it will look like:
-        "income_after_tax": 0,
-        "average_expenses": 0,
-        "house_year": 2021,
-        "deposit_percentage": 0,
-        "current_savings": 0,
-        "savings_age": 0
+        currentSavings:20000,
+        income: 60000, 
+        expenses: 40000, 
+        year: 2026,
+        deposit: 10,
+        savingsAge: 5
     });
     const [data, setData] = useState([
         {
@@ -35,9 +34,10 @@ function StatusChecker() {
     ]);
 
     const inputsHandler = (e) =>{
-        setUserInfo( {[e.target.name]: e.target.value} );
+        // console.log(e.target);
+        setUserInfo({...userInfo, [e.target.name]: e.target.value});
+        userInfo[e.target.name] = e.target.value;
         console.log("userinfo is: ", userInfo);
-
         setData([
             {
                 name: "",
@@ -45,7 +45,7 @@ function StatusChecker() {
             },
             {
                 name: "current savings",
-                current_savings: userInfo["current_savings"]
+                current_savings: userInfo["currentSavings"]
             },
         ])
 
@@ -55,9 +55,41 @@ function StatusChecker() {
         alert(userInfo.income_after_tax);
     }
     
-    const renderLineChart = (
+    return (
         <div>
-            {/* based on https://recharts.org/en-US/examples */}
+            <header>
+                <h1>Check your current status</h1>
+            </header>
+            <div>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+                    molestiae quas vel sint commodi repudiandae consequuntur. 
+                </p>
+                <form>
+                    <p>Please enter your details as accurately as possible. </p>
+
+                    <label for="incomeaftertax">Income after tax:</label><br/>
+                    <input type="number" id="incomeaftertax" placeholder="10000" name="income" onChange={inputsHandler} value={userInfo.income}></input><br/><br/> {/* based on https://www.pluralsight.com/guides/handling-multiple-inputs-with-single-onchange-handler-react */}
+
+                    <label for="averageexpenses">Average Expenses:</label><br/>
+                    <input type="number" id="averageexpenses" placeholder="9000" name="expenses" onChange={inputsHandler} value={userInfo.expenses}></input><br/><br/>
+
+                    <label for="houseyear">When do you want to buy a house?:</label><br/>
+                    <input type="number" id="houseyear" placeholder="2045" min="2021" max="2050" name="year" onChange={inputsHandler} value={userInfo.year}></input><br/><br/>
+
+                    <label for="depositpercentage">Deposit percentage:</label><br/>
+                    <input type="number" id="depositpercentage" placeholder="10" max="100" step="1" name="deposit" onChange={inputsHandler} value={userInfo.deposit}></input><br/><br/>
+
+                    <label for="currentsavings">Current Savings:</label><br/>
+                    <input type="number" id="currentsavings" placeholder="1000" name="currentSavings" onChange={inputsHandler} value={userInfo.currentSavings}></input><br/><br/>
+                    
+                    <label for="savingsage">How long have you been saving for (years)?:</label><br/>
+                    <input type="number" id="savingsage" placeholder="5" name="savingsAge" onChange={inputsHandler} value={userInfo.savingsAge}></input><br/><br/>
+                    
+                    <button onClick={submitButton}>Submit Now</button>
+                </form>
+
+                {/* {renderLineChart} based on https://recharts.org/en-US/examples */}
                 <LineChart
                     width={500}
                     height={300}
@@ -77,50 +109,9 @@ function StatusChecker() {
                     <Legend />
 
                     {/* draw lines */}
-                    <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
-                    <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
-                    <Line type="monotone" dataKey="amt" stroke="#82ca9d" />
                     <Line type="monotone" dataKey="current_savings" stroke="#DC143C" />
                 </LineChart>
-        </div>
-    );
-
-    return (
-        <div>
-            <header>
-                <h1>Check your current status</h1>
-            </header>
-            <body>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-                    molestiae quas vel sint commodi repudiandae consequuntur. 
-                </p>
-                <form>
-                    <p>Please enter your details as accurately as possible. </p>
-
-                    <label for="incomeaftertax">Income after tax:</label><br/>
-                    <input type="number" id="incomeaftertax" placeholder="10000" name="income_after_tax" onChange={inputsHandler}></input><br/><br/>
-
-                    <label for="averageexpenses">Average Expenses:</label><br/>
-                    <input type="number" id="averageexpenses" placeholder="9000" name="average_expenses" onChange={inputsHandler}></input><br/><br/>
-
-                    <label for="houseyear">When do you want to buy a house?:</label><br/>
-                    <input type="number" id="houseyear" placeholder="2045" min="2021" max="2050" name="house_year" onChange={inputsHandler}></input><br/><br/>
-
-                    <label for="depositpercentage">Deposit percentage:</label><br/>
-                    <input type="number" id="depositpercentage" placeholder="10" min="0.001" max="100" name="deposit_percentage" onChange={inputsHandler}></input><br/><br/>
-
-                    <label for="currentsavings">Current Savings:</label><br/>
-                    <input type="number" id="currentsavings" placeholder="1000" name="current_savings" onChange={inputsHandler}></input><br/><br/>
-                    
-                    <label for="savingsage">How long have you been saving for (years)?:</label><br/>
-                    <input type="number" id="savingsage" placeholder="5" name="savings_age" onChange={inputsHandler}></input><br/><br/>
-                    
-                    <button onClick={submitButton}>Submit Now</button>
-                </form>
-
-                {renderLineChart}
-            </body>
+            </div>
         </div>
     );
 }
