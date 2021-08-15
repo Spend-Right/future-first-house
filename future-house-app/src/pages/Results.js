@@ -64,13 +64,27 @@ export default function Api(props) {
       
 
       // We have the response now lets update our component state
+      // Compares the addresses to not display any duplicates
+      const homeData = [...newHomeData.List, ...residentialData.List, ...ruralData.List, ...lifeStyleData.List];
+      let newData = [];
+      homeData.forEach(element => {
+        let ID = element.Address;
+        let exists = false
+        for(let i = 0; i < newData.length; i++){
+          let e = newData[i];
+          let e_Address = e.Address;
+          if (e_Address === ID){
+            exists = true;
+          }
+        }
+        if(!exists){
+          newData.push(element);
+        }
+      });
       
-      //setData(resData, newData);
-      //const allHomes = [resData, newData];
-      setData([...newHomeData.List, ...residentialData.List, ...ruralData.List, ...lifeStyleData.List]);
-      // 
+      setData(newData);
+      
     };
-
     // Call our fetch function
     fetchData();
   }, []);
