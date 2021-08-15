@@ -2,26 +2,42 @@
 import Button from "react-bootstrap/Button";
 import { NavLink } from "react-router-dom";
 import "../../src/index.css";
+import styled from 'styled-components';
+
+export const Grid = styled.div`
+    
+`;
+export const Row = styled.div`
+    display: flex;
+`;
+export const Col = styled.div`
+    flex: ${(props) => props.size};
+`;
+
 
 function Home() {
   return (
-    <div className="App">
-      <header className="App-header">
-        {/* <h1>Future-First-Home </h1> */}
-        <p>
-          Encouraging young adults to start saving for their first home wih
-          guidance
-        </p>
-        Learn to manage your budgets and finantial means, and have control of
-        your future
-      </header>
-
-      <body>
-        <Button style={{ background: "skyblue" }} className="font-link">
-          <NavLink to="/housegoal">See your house goal</NavLink>
-        </Button>
-      </body>
-    </div>
+    <Grid id="tiles">
+        <div className="tile">
+            <img src="" alt="people" />
+            <p className="tile-header">
+                Understand your financial future with home-owning metrics and feedback
+            </p>
+            <p className="tile-content">
+                Use the tool to discern personalized realistic time frames and requirements for purchase of property
+            </p>
+        </div>
+        <div className="tile">
+            
+            <img src="" alt="people" />
+            <p className="tile-header">
+                Plan you finance from key metrics all the way to keys in hand
+            </p>
+            <p className="tile-content">
+                Plan your budgeting to align with customizable forecasts in order to achieve your dream home goals
+            </p>
+        </div>
+    </Grid>
   );
 }
 
