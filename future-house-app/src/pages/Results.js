@@ -20,7 +20,7 @@ export default function Api(props) {
       // This does the API request - the 'await' tells our code to wait
       // until we have a response back from the API
       const responseResidential = await fetch(
-        `	https://api.tmsandbox.co.nz/v1/Search/Property/Residential.json?TotalCount=20`,
+        `	https://api.tmsandbox.co.nz/v1/Search/Property/Residential.json`,
         {
           headers: {
             Authorization: `OAuth oauth_consumer_key=${TRADE_ME_CONFIG.key}, oauth_signature_method=PLAINTEXT, oauth_signature=${TRADE_ME_CONFIG.secret}%26`
@@ -29,7 +29,7 @@ export default function Api(props) {
       );
 
       const responseNewHomes = await fetch(
-        `	https://api.tmsandbox.co.nz/v1/Search/Property/NewHomes.json?TotalCount=20`,
+        `	https://api.tmsandbox.co.nz/v1/Search/Property/NewHomes.json`,
         {
           headers: {
             Authorization: `OAuth oauth_consumer_key=${TRADE_ME_CONFIG.key}, oauth_signature_method=PLAINTEXT, oauth_signature=${TRADE_ME_CONFIG.secret}%26`
@@ -38,7 +38,7 @@ export default function Api(props) {
       );
 
       const responseRural = await fetch(
-        `	https://api.tmsandbox.co.nz/v1/Search/Property/Rural.json?TotalCount=20`,
+        `	https://api.tmsandbox.co.nz/v1/Search/Property/Rural.json`,
         {
           headers: {
             Authorization: `OAuth oauth_consumer_key=${TRADE_ME_CONFIG.key}, oauth_signature_method=PLAINTEXT, oauth_signature=${TRADE_ME_CONFIG.secret}%26`
@@ -47,7 +47,7 @@ export default function Api(props) {
       );
 
       const responseLifestyle = await fetch(
-        `	https://api.tmsandbox.co.nz/v1/Search/Property/Lifestyle.json?TotalCount=20`,
+        `	https://api.tmsandbox.co.nz/v1/Search/Property/Lifestyle.json`,
         {
           headers: {
             Authorization: `OAuth oauth_consumer_key=${TRADE_ME_CONFIG.key}, oauth_signature_method=PLAINTEXT, oauth_signature=${TRADE_ME_CONFIG.secret}%26`
@@ -85,6 +85,7 @@ export default function Api(props) {
       setData(newData);
       
     };
+
     // Call our fetch function
     fetchData();
   }, []);
@@ -105,6 +106,7 @@ export default function Api(props) {
             <h2>{item.Address}</h2>
             <h2>{item.Suburb}</h2>
             <h2>{item.PropertyType}</h2>
+            <h2>{item.ListingId}</h2>
             <h2>Bedroom number: {item.Bedrooms}</h2>
             <img src={item.PictureHref} alt="" />
             <p>Price: {item.PriceDisplay}</p>
