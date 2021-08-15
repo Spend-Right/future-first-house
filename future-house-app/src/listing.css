@@ -1,0 +1,95 @@
+.Listing_container{
+    margin: auto;
+    width: 50%;
+    height: 70%;
+    border: 3px solid black;
+    border-radius: 30px;
+    background: ivory;
+    margin-top: 100px;
+}
+
+.Listing_inner{
+    padding: 2em;
+    display: grid;
+    grid-template-areas:
+    'address address address . checkbox'
+    'cost . . . .'
+    'carousel carousel bedicon bed .'
+    'carousel carousel bathicon bath .'
+    'carousel carousel houseicon house .'
+    'carousel carousel . button button';
+}
+
+.Street_Address{
+    width: 70%;
+    grid-area: address;
+}
+
+.House_cost{
+    color: #FFC42F;
+    grid-area: cost;
+}
+
+#Feature_Name1{
+    margin-left: -12em;
+    grid-area: bed;
+}
+#Feature_Name2{
+    margin-left: -12em;
+    grid-area: bath;
+}
+#Feature_Name3{
+    margin-left: -12em;
+    grid-area: house;
+}
+
+.carousel{
+    width: 70%;
+    grid-area: carousel;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.slide{
+    grid-area: carousel;
+}
+
+.Checkbox{
+    width: 50px;
+    height: 50px;
+    border: 3px solid #FFC42F;;
+    grid-area: checkbox;
+    border-radius: 10px;
+}
+
+.Checkbox:hover{
+    background-color: #ffd364;
+    cursor: pointer;
+}
+
+
+.Bath_icon{
+    margin-left: -22%;
+    width: 15%;
+    grid-area: bathicon;
+}
+.Bed_icon{
+    margin-left: -22%;
+    width: 15%;
+    grid-area: bedicon;
+}
+.Property_icon{
+    margin-left: -22%;
+    width: 15%;
+    grid-area: houseicon;
+}
+
+.Listing_link{
+    margin-left: -12em;
+    background: #FFC42F;
+    grid-area: button;
+    color: ivory;
+    text-decoration: none;
+    padding: 0.5em;
+    width: 300%;
+}
