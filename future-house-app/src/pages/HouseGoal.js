@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {calcBudget, ShowBuget} from '../calculator';
+import Api from './Results';
 
 function HouseGoal() {
 
@@ -20,8 +21,6 @@ function HouseGoal() {
     }
 
     const submitButton = () =>{
-        // this.state.budget = calcBudget(inputField.currentSavings, inputField.income, inputField.expenses, inputField.year, inputField.deposit)
-        
         var budget = calcBudget(inputField.currentSavings, inputField.income, inputField.expenses, inputField.year, inputField.deposit)
         alert(budget)
         return budget
@@ -58,16 +57,11 @@ function HouseGoal() {
 
                         <label for="bedrooms">Badrooms</label><br/>
                         <input type="number" name="bedrooms" onChange={inputsHandler} value={inputField.bedrooms}></input><br/><br/>
-
-                        <input type="submit" value="Submit"></input>
                     </form>
                 </div>
 
-                <div class="result">
-                    <text>
-                        {calcBudget(inputField.currentSavings, inputField.income, inputField.expenses, inputField.year, inputField.deposit)}
-                    </text>
-                </div>
+                <Api budget={
+                    calcBudget(inputField.currentSavings, inputField.income, inputField.expenses, inputField.year, inputField.deposit)} />
                 
             </body>
         </div>
