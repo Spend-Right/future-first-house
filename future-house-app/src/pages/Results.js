@@ -88,7 +88,7 @@ export default function Api(props) {
 
     // Call our fetch function
     fetchData();
-  }, []);
+  }, [props.budget]);
 
   // We haven't got any data back yet, let's show a loading message
   if (!data) {
