@@ -13,27 +13,24 @@ During a whole weekend we worked on the first stage of building web a web app fo
 
 ## The Team
 
-* Lead Developer 
-
+* Lead Developer      
   [![Linkedin](https://i.stack.imgur.com/gVE0j.png) Tian Welgemoed](www.linkedin.com/in/tian-welgemoed)   
   [![GitHub](https://i.stack.imgur.com/tskMh.png) @pollie80](https://github.com/joelhilley)
 
-* Backend Developer 
-
+* Backend Developer      
   [![Linkedin](https://i.stack.imgur.com/gVE0j.png) Joel Hilley](https://www.linkedin.com/in/joel-hilley-5b2090136/)     
   [![GitHub](https://i.stack.imgur.com/tskMh.png) @joelHilley](https://github.com/joelhilley)
 
-* Backend Developer
-
+* Backend Developer     
   [![Linkedin](https://i.stack.imgur.com/gVE0j.png) Louis Cooper](https://www.linkedin.com/in/louistcooper/)       
   [![GitHub](https://i.stack.imgur.com/tskMh.png) @louistcooper](https://github.com/louistcooper) 
-  
-* Backend Developer 
+   
+* Backend Developer       
   [![Linkedin](https://i.stack.imgur.com/gVE0j.png) Emanuel Evans](https://www.linkedin.com/in/emanuel-evans/)     
   [![GitHub](https://i.stack.imgur.com/tskMh.png) @ evansem](https://github.com/evansem)
 
   
- * Designer 
+ * Designer    
    [![Linkedin](https://i.stack.imgur.com/gVE0j.png) Kalem Edlin](https://www.linkedin.com/in/kalemedlin/)   
    [![GitHub](https://i.stack.imgur.com/tskMh.png) @ kalem-edlin](https://github.com/kalem-edlin)
   
